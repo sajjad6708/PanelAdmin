@@ -10,6 +10,7 @@
         "laravel/horizon": "^5.25",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
+        "spatie/laravel-sitemap": "^7.2",
         "yajra/laravel-datatables": "^11.0",
         "yajra/laravel-datatables-oracle": "^11.1"
     },
