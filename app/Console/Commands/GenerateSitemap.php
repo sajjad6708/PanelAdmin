@@ -2,7 +2,10 @@
 
 namespace App\Console\Commands;
 
+use App\Jobs\GenerateSitemapJob;
 use Illuminate\Console\Command;
+use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\Tags\Url;
 
 class GenerateSitemap extends Command
 {
@@ -11,20 +14,28 @@ class GenerateSitemap extends Command
      *
      * @var string
      */
-    protected $signature = 'app:generate-sitemap';
+    protected $signature = 'generate-sitemap';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
-
+    protected $description = 'Generate the sitemap for the website';
     /**
      * Execute the console command.
      */
+
+
+    public function __construct()
+    {
+        parent::__construct();
+    }
     public function handle()
     {
-        //
+        GenerateSitemapJob::dispatch() ;
+        $this->info('Sitemap generation job dispatched.');
     }
+
+
 }
