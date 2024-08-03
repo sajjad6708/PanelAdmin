@@ -86,7 +86,7 @@
                              {{$email->body}}
                             </td>
                             <td>
-                              <a  class="btn btn-warning"  href="{{ route('email.send' ,$email->id) }}">Send</a>
+                              <a  class="btn btn-warning"  href="{{ route('email.send' ,$email) }}">Send</a>
                             </td>
                           </tr>
                         @endforeach

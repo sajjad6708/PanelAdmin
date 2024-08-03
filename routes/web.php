@@ -15,8 +15,9 @@ Route::prefix('admin')->group(function(){
 Route::get('/' , [DashboardController::class , 'index'])->name('home');
 Route::get('email', [EmailController::class , 'index'])->name('email.index');
 Route::get('email-create' , [EmailController::class , 'create'])->name('email.create');
-Route::post('email-send/{email}' , [EmailController::class , 'send'])->name('email.send');
 Route::post('email-store/' , [EmailController::class , 'store'])->name('email.store');
+Route::get('email-send/{email}' , [EmailController::class , 'send'])->name('email.send');
+
 
 Route::prefix('content')->group(function(){
 Route::get('/home' , [HomeController::class , 'index'])->name('home-content');
