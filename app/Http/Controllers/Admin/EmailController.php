@@ -1,47 +1,44 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Content;
-use App\Models\User;
+namespace App\Http\Controllers\Admin;
+
+use App\Models\Email;
+use App\Jobs\SendEmail;
 use Illuminate\Http\Request;
 use App\Actions\Email\StoreAction;
-use App\DataTables\PostsDataTable;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\PostRequest;
 
-class PostController extends Controller
+class EmailController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(PostsDataTable $dataTable): mixed
+    public function index()
     {
-        return $dataTable?->render('admin.content.posts.index');
+        $emails = Email::all();
+        return view('admin.email.index',compact('emails')) ;
     }
-
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-      $user = User::all();
-        return view('admin.content.posts.create', compact('user')) ;
+     return view('admin.email.create') ;
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(PostRequest $request ,  StoreAction $action)
+    public function store(Request $request , StoreAction $action)
     {
-
-     
-        if ($action->execute($request)) {
-            // GenerateSitemap::dispatch();
-
-            return redirect()->route('posts.index')->with('alert-section-success', 'Post created successfully');
-        } else {
-            return redirect()->route('posts.index')->with('alert-section-error', 'Error in created the post');
-        }
+        // $data = $request->all() ;
+     if($action->execute($request)){
+        return redirect()->route('email.index') ;
+     }
+     else{
+        return redirect()->route('email.index')->with('error' , 'error') ;
+     }
     }
 
     /**
@@ -57,7 +54,7 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
-   
+        //
     }
 
     /**
@@ -74,5 +71,13 @@ class PostController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function send(Email $email)
+    {
+        SendEmail::dispatch($email) ;
+        return back();
+        
+        
     }
 }

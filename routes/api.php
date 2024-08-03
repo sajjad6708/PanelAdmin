@@ -10,7 +10,7 @@ Route::get('/user', function (Request $request) {
 
 Route::middleware('auth:sanctum')->group(function(){
 
- Route::apiResource('posts', ApiPostController::class) ;
+ Route::apiResource('api-posts', ApiPostController::class) ;
     // Route::get('/posts' ,[ApiPostController::class , 'index'])->name('index') ;
     // Route::post('/posts' ,[ApiPostController::class , 'store'])->name('store') ;
     
