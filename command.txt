@@ -1,0 +1,4 @@
+sudo /etc/init.d/mysql start
+sudo service redis-server restart
+php artisan serve
+

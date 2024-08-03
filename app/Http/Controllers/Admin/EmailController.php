@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\User;
 use App\Models\Email;
 use App\Jobs\SendEmail;
 use Illuminate\Http\Request;
 use App\Actions\Email\StoreAction;
 use App\Http\Controllers\Controller;
+use App\Http\Services\Message\MessageService;
+use App\Http\Services\Message\Email\EmailService;
 
 class EmailController extends Controller
 {
@@ -75,6 +78,26 @@ class EmailController extends Controller
 
     public function send(Email $email)
     {
+
+        $user = User::whereNotNull('email')->get() ;
+
+
+        //  $emailService = new EmailService ;
+ 
+        //  $details = [
+        //      'title' => $email->subject ,
+        //      'body' => $email->body
+        //  ];
+        //  $emailService->setDetails($details);
+        //  $emailService->setFrom('s313dasht@gmail.com', 'protectiooon');
+        //  $emailService->setSubject($email->subject);
+        //  $emailService->setTo('s313dasht@gmail.com');
+        //  $messagesService = new MessageService($emailService);
+        //  $messagesService->send();
+    
+
+
+
         SendEmail::dispatch($email) ;
         return back();
         

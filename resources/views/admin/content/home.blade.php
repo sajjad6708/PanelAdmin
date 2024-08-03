@@ -51,43 +51,9 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <div class="subheader">Categories</div>
-                                </div>
-                                <div class="d-flex align-items-baseline">
-                                    <div class="h1 mb-0 me-2">userCount</div>
-                                </div>
-                            </div>
-                            <div id="chart-revenue-bg4" class="chart-sm"></div>
-                        </div>
-                    </div>
+              
 
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between">
-                                    <h3 class="card-title">Site Visits</h3>
-                                    <h3 class="card-title">visitsCount2</h3>
-                                </div>
-                                <div id="chart-mentions1" class="chart-lg"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between">
-                                    <h3 class="card-title">Users History</h3>
-                                    <h3 class="card-title">usersCount2</h3>
-                                </div>
-                                <div id="chart-mentions2" class="chart-lg"></div>
-                            </div>
-                        </div>
-                    </div>
+             
                 </div>
             </div>
         </div>

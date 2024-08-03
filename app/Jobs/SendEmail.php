@@ -31,13 +31,14 @@ public $email ;
     public function handle(): void
     {
        $users = User::whereNotNull('email')->get() ;
+       dd($users) ;
 
        foreach($users as $user){
         $emailService = new EmailService ;
 
         $details = [
-            'title' => $user->subject ,
-            'body' => $user->body
+            'title' => $this->email->subject ,
+            'body' => $this->email->body
         ];
         $emailService->setDetails($details);
         $emailService->setFrom('s313dasht@gmail.com', 'protection');
