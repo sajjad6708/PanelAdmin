@@ -16,7 +16,7 @@ class SendEmail implements ShouldQueue
 {
 
     use Queueable;
-public $email ;
+    public $email ;
     /**
      * Create a new job instance.
      */
@@ -31,7 +31,7 @@ public $email ;
     public function handle(): void
     {
        $users = User::whereNotNull('email')->get() ;
-       dd($users) ;
+    //    dd($users) ;
 
        foreach($users as $user){
         $emailService = new EmailService ;

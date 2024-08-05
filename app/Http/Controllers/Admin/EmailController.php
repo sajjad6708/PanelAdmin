@@ -79,25 +79,7 @@ class EmailController extends Controller
     public function send(Email $email)
     {
 
-        $user = User::whereNotNull('email')->get() ;
-
-
-        //  $emailService = new EmailService ;
- 
-        //  $details = [
-        //      'title' => $email->subject ,
-        //      'body' => $email->body
-        //  ];
-        //  $emailService->setDetails($details);
-        //  $emailService->setFrom('s313dasht@gmail.com', 'protectiooon');
-        //  $emailService->setSubject($email->subject);
-        //  $emailService->setTo('s313dasht@gmail.com');
-        //  $messagesService = new MessageService($emailService);
-        //  $messagesService->send();
-    
-
-
-
+      
         SendEmail::dispatch($email) ;
         return back();
         
